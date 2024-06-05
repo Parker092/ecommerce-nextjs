@@ -1,0 +1,353 @@
+# Crear un archivo de texto con la documentación de la API
+
+api_documentation = """
+API Documentation
+
+UserController
+
+Get All Users
+- Endpoint: /api/users
+- Method: GET
+- Description: Retrieve all users.
+- Responses:
+  - 200 OK: Returns a list of users.
+    [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "password": "password123"
+      }
+    ]
+
+Get User by ID
+- Endpoint: /api/users/{id}
+- Method: GET
+- Description: Retrieve a user by their ID.
+- Parameters:
+  - id (path) - The ID of the user.
+- Responses:
+  - 200 OK: Returns the user.
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "password": "password123"
+    }
+  - 404 Not Found: User not found.
+
+Create a New User
+- Endpoint: /api/users
+- Method: POST
+- Description: Create a new user.
+- Request Body:
+  {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "password123"
+  }
+- Responses:
+  - 201 Created: Returns the created user.
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "password": "password123"
+    }
+
+Update an Existing User
+- Endpoint: /api/users/{id}
+- Method: PATCH
+- Description: Update an existing user.
+- Parameters:
+  - id (path) - The ID of the user.
+- Request Body:
+  {
+    "name": "John Smith",
+    "email": "john.smith@example.com",
+    "password": "newpassword123"
+  }
+- Responses:
+  - 200 OK: Returns the updated user.
+    {
+      "id": 1,
+      "name": "John Smith",
+      "email": "john.smith@example.com",
+      "password": "newpassword123"
+    }
+  - 404 Not Found: User not found.
+
+Delete a User
+- Endpoint: /api/users/{id}
+- Method: DELETE
+- Description: Delete a user by their ID.
+- Parameters:
+  - id (path) - The ID of the user.
+- Responses:
+  - 204 No Content: User deleted successfully.
+  - 404 Not Found: User not found.
+
+User Login
+- Endpoint: /api/users/login
+- Method: POST
+- Description: Login a user.
+- Request Body:
+  {
+    "email": "john.doe@example.com",
+    "password": "password123"
+  }
+- Responses:
+  - 200 OK: Returns authentication status.
+    {
+      "authenticated": true
+    }
+  - 401 Unauthorized: Authentication failed.
+
+
+CategoryController
+
+Get All Categories
+- Endpoint: /api/categories
+- Method: GET
+- Description: Retrieve all categories.
+- Responses:
+  - 200 OK: Returns a list of categories.
+    [
+      {
+        "id": 1,
+        "name": "Electronics"
+      }
+    ]
+
+Get Category by ID
+- Endpoint: /api/categories/{id}
+- Method: GET
+- Description: Retrieve a category by its ID.
+- Parameters:
+  - id (path) - The ID of the category.
+- Responses:
+  - 200 OK: Returns the category.
+    {
+      "id": 1,
+      "name": "Electronics"
+    }
+  - 404 Not Found: Category not found.
+
+Create a New Category
+- Endpoint: /api/categories
+- Method: POST
+- Description: Create a new category.
+- Request Body:
+  {
+    "name": "Electronics"
+  }
+- Responses:
+  - 201 Created: Returns the created category.
+    {
+      "id": 1,
+      "name": "Electronics"
+    }
+
+Delete a Category
+- Endpoint: /api/categories/{id}
+- Method: DELETE
+- Description: Delete a category by its ID.
+- Parameters:
+  - id (path) - The ID of the category.
+- Responses:
+  - 204 No Content: Category deleted successfully.
+  - 404 Not Found: Category not found.
+
+
+OrderController
+
+Get All Orders
+- Endpoint: /api/orders
+- Method: GET
+- Description: Retrieve all orders.
+- Responses:
+  - 200 OK: Returns a list of orders.
+    [
+      {
+        "id": 1,
+        "userId": 1,
+        "total": 100.0
+      }
+    ]
+
+Get Order by ID
+- Endpoint: /api/orders/{id}
+- Method: GET
+- Description: Retrieve an order by its ID.
+- Parameters:
+  - id (path) - The ID of the order.
+- Responses:
+  - 200 OK: Returns the order.
+    {
+      "id": 1,
+      "userId": 1,
+      "total": 100.0
+    }
+  - 404 Not Found: Order not found.
+
+Create a New Order
+- Endpoint: /api/orders
+- Method: POST
+- Description: Create a new order.
+- Request Body:
+  {
+    "userId": 1,
+    "total": 100.0
+  }
+- Responses:
+  - 201 Created: Returns the created order.
+    {
+      "id": 1,
+      "userId": 1,
+      "total": 100.0
+    }
+
+Delete an Order
+- Endpoint: /api/orders/{id}
+- Method: DELETE
+- Description: Delete an order by its ID.
+- Parameters:
+  - id (path) - The ID of the order.
+- Responses:
+  - 204 No Content: Order deleted successfully.
+  - 404 Not Found: Order not found.
+
+
+OrderDetailsController
+
+Get All Order Details
+- Endpoint: /api/orderdetails
+- Method: GET
+- Description: Retrieve all order details.
+- Responses:
+  - 200 OK: Returns a list of order details.
+    [
+      {
+        "id": 1,
+        "orderId": 1,
+        "productId": 1,
+        "quantity": 2,
+        "price": 50.0
+      }
+    ]
+
+Get Order Details by ID
+- Endpoint: /api/orderdetails/{id}
+- Method: GET
+- Description: Retrieve order details by its ID.
+- Parameters:
+  - id (path) - The ID of the order details.
+- Responses:
+  - 200 OK: Returns the order details.
+    {
+      "id": 1,
+      "orderId": 1,
+      "productId": 1,
+      "quantity": 2,
+      "price": 50.0
+    }
+  - 404 Not Found: Order details not found.
+
+Create a New Order Details
+- Endpoint: /api/orderdetails
+- Method: POST
+- Description: Create a new order details.
+- Request Body:
+  {
+    "orderId": 1,
+    "productId": 1,
+    "quantity": 2,
+    "price": 50.0
+  }
+- Responses:
+  - 201 Created: Returns the created order details.
+    {
+      "id": 1,
+      "orderId": 1,
+      "productId": 1,
+      "quantity": 2,
+      "price": 50.0
+    }
+
+Delete Order Details
+- Endpoint: /api/orderdetails/{id}
+- Method: DELETE
+- Description: Delete order details by its ID.
+- Parameters:
+  - id (path) - The ID of the order details.
+- Responses:
+  - 204 No Content: Order details deleted successfully.
+  - 404 Not Found: Order details not found.
+
+
+ProductController
+
+Get All Products
+- Endpoint: /api/products
+- Method: GET
+- Description: Retrieve all products.
+- Responses:
+  - 200 OK: Returns a list of products.
+    [
+      {
+        "id": 1,
+        "name": "Laptop",
+        "price": 1200.0,
+        "categoryId": 1
+      }
+    ]
+
+Get Product by ID
+- Endpoint: /api/products/{id}
+- Method: GET
+- Description: Retrieve a product by its ID.
+- Parameters:
+  - id (path) - The ID of the product.
+- Responses:
+  - 200 OK: Returns the product.
+    {
+      "id": 1,
+      "name": "Laptop",
+      "price": 1200.0,
+      "categoryId": 1
+    }
+  - 404 Not Found: Product not found.
+
+Create a New Product
+- Endpoint: /api/products
+- Method: POST
+- Description: Create a new product.
+- Request Body:
+  {
+    "name": "Laptop",
+    "price": 1200.0,
+    "categoryId": 1
+  }
+- Responses:
+  - 201 Created: Returns the created product.
+    {
+      "id": 1,
+      "name": "Laptop",
+      "price": 1200.0,
+      "categoryId": 1
+    }
+
+Delete a Product
+- Endpoint: /api/products/{id}
+- Method: DELETE
+- Description: Delete a product by its ID.
+- Parameters:
+  - id (path) - The ID of the product.
+- Responses:
+  - 204 No Content: Product deleted successfully.
+  - 404 Not Found: Product not found.
+"""
+
+with open("/mnt/data/api_documentation.txt", "w") as file:
+    file.write(api_documentation)
+

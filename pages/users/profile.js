@@ -22,7 +22,7 @@ const Profile = () => {
       const fetchOrders = async () => {
         try {
           const ordersData = await getAllOrders();
-          const userOrders = ordersData.filter(order => order.user.id === storedUser.id);
+          const userOrders = ordersData.filter(order => order.user && order.user.id === storedUser.id);
           setOrders(userOrders);
         } catch (error) {
           console.error('Error fetching orders:', error);

@@ -347,7 +347,3 @@ Delete a Product
   - 204 No Content: Product deleted successfully.
   - 404 Not Found: Product not found.
 """
-
-with open("/mnt/data/api_documentation.txt", "w") as file:
-    file.write(api_documentation)
-
